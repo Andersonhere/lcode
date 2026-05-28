@@ -9,6 +9,7 @@ class LRUCache
     class Node
     {
     public:
+        int key;
         int val;
         Node *next;
         Node *pre;
@@ -17,9 +18,11 @@ class LRUCache
             , next(nullptr)
             , pre(nullptr)
         {
+            key = -1;
         }
-        Node(int value)
-            : val(value)
+        Node(int k, int value)
+            : key(k)
+            , val(value)
             , next(nullptr)
             , pre(nullptr)
         {
@@ -83,11 +86,11 @@ public:
                 Node *last = tail->pre;
                 tail->pre = last->pre;
                 last->pre->next = tail;
-                m.erase(last->val);
+                m.erase(last->key);
                 delete last;
             }
             // Insert the new item
-            m[key] = new Node(value);
+            m[key] = new Node(key, value);
             Node *node = m[key];
             node->next = head->next;
             node->pre = head;
@@ -109,5 +112,17 @@ int main()
     assert(cache.get(1) == -1);
     assert(cache.get(3) == 3);
     assert(cache.get(4) == 4);
+
+    // Additional sequence from the screenshot
+    LRUCache cache2(2);
+    cache2.put(1, 0);
+    cache2.put(2, 2);
+    assert(cache2.get(1) == 0);
+    cache2.put(3, 3);
+    assert(cache2.get(2) == -1);
+    cache2.put(4, 4);
+    assert(cache2.get(1) == -1);
+    assert(cache2.get(3) == 3);
+    assert(cache2.get(4) == 4);
     return 0;
 }

@@ -4,43 +4,51 @@
 #include <unordered_map>
 using namespace std;
 
-class Node{
-public:
-    int val;
-    Node* next;
-    Node* pre;
-    Node():val(-1) , next(nullptr), pre(nullptr){
-    }
-    Node(int value): val(value), next(nullptr), pre(nullptr){
-    }
-};
-
-
-class LRUCache {
-
-    unordered_map <int,Node*> m;
+class LRUCache
+{
+    class Node
+    {
+    public:
+        int val;
+        Node *next;
+        Node *pre;
+        Node()
+            : val(-1)
+            , next(nullptr)
+            , pre(nullptr)
+        {
+        }
+        Node(int value)
+            : val(value)
+            , next(nullptr)
+            , pre(nullptr)
+        {
+        }
+    };
+    unordered_map<int, Node *> m;
     int cap;
-    Node* head;
-    Node* tail;
-
-
+    Node *head;
+    Node *tail;
 
 public:
-    LRUCache(int capacity) : cap(capacity) {
+    LRUCache(int capacity)
+        : cap(capacity)
+    {
         head = new Node();
         tail = new Node();
         head->next = tail;
         tail->pre = head;
     }
 
-    int get(int key) {
+    int get(int key)
+    {
         if (m.find(key) != m.end()) {
             // Move the node to the head
-            Node * node = m[key];
+            Node *node = m[key];
             if (node->pre) {
                 node->pre->next = node->next;
             }
-            if(node->next) {
+            if (node->next) {
                 node->next->pre = node->pre;
             }
             node->next = head->next;
@@ -52,12 +60,13 @@ public:
         return -1;
     }
 
-    void put(int key, int value) {
+    void put(int key, int value)
+    {
         if (m.find(key) != m.end()) {
             // Update existing key
             m[key]->val = value;
             // Move the node to the head
-            Node* node = m[key];
+            Node *node = m[key];
             if (node->pre) {
                 node->pre->next = node->next;
             }
@@ -71,7 +80,7 @@ public:
         } else {
             if (m.size() >= cap) {
                 // Remove the least recently used item
-                Node* last = tail->pre;
+                Node *last = tail->pre;
                 tail->pre = last->pre;
                 last->pre->next = tail;
                 m.erase(last->val);
@@ -79,7 +88,7 @@ public:
             }
             // Insert the new item
             m[key] = new Node(value);
-            Node* node = m[key];
+            Node *node = m[key];
             node->next = head->next;
             node->pre = head;
             head->next->pre = node;
@@ -88,7 +97,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     LRUCache cache(2);
     cache.put(1, 1);
     cache.put(2, 2);

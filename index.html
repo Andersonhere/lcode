@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode 习题集</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      padding: 2rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #888;
+    }
+    .stats { color: #888; margin-bottom: 2rem; font-size: 0.9rem; }
+    .section { margin-bottom: 2rem; }
+    .section h2 {
+      font-size: 1.2rem;
+      color: #555;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 0.8rem;
+    }
+    .problem-list { list-style: none; }
+    .problem-item {
+      display: flex;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      background: #fff;
+      border-radius: 6px;
+      margin-bottom: 0.4rem;
+      transition: background 0.15s;
+    }
+    .problem-item:hover { background: #f0f4ff; }
+    .problem-item .no {
+      width: 3rem;
+      font-weight: 600;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .problem-item .name {
+      flex: 1;
+      font-size: 0.95rem;
+    }
+    .problem-item .name a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    .problem-item .name a:hover { text-decoration: underline; }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-left: 0.6rem;
+    }
+    .badge-easy { background: #e8f5e9; color: #2e7d32; }
+    .badge-medium { background: #fff3e0; color: #e65100; }
+    .badge-hard { background: #fce4ec; color: #c62828; }
+    .problem-item .links {
+      font-size: 0.8rem;
+      color: #888;
+      margin-left: 1rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+    .problem-item .links a {
+      color: #888;
+      text-decoration: none;
+    }
+    .problem-item .links a:hover { color: #1a73e8; }
+    .problem-item .links .sep { color: #ddd; }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>LeetCode 习题集 <small>练题记录</small></h1>
+    <p class="stats">共 5 道题目</p>
+
+    <div class="section">
+      <h2>📌 滑动窗口</h2>
+      <ul class="problem-list">
+        <li class="problem-item">
+          <span class="no">3</span>
+          <span class="name">
+            <a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/" target="_blank">无重复字符的最长子串</a>
+            <span class="badge badge-medium">中等</span>
+          </span>
+          <span class="links">
+            <a href="sliding-window/0003-无重复字符的最长子串/README.md">题面</a>
+            <span class="sep">|</span>
+            <a href="sliding-window/0003-无重复字符的最长子串/solution.cpp">题解</a>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📌 哈希表</h2>
+      <ul class="problem-list">
+        <li class="problem-item">
+          <span class="no">146</span>
+          <span class="name">
+            <a href="https://leetcode.cn/problems/lru-cache/description/" target="_blank">LRU 缓存</a>
+            <span class="badge badge-medium">中等</span>
+          </span>
+          <span class="links">
+            <a href="hash-table/0146-LRU缓存/README.md">题面</a>
+            <span class="sep">|</span>
+            <a href="hash-table/0146-LRU缓存/solution.cpp">题解</a>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📌 链表</h2>
+      <ul class="problem-list">
+        <li class="problem-item">
+          <span class="no">206</span>
+          <span class="name">
+            <a href="https://leetcode.cn/problems/reverse-linked-list/description/" target="_blank">反转链表</a>
+            <span class="badge badge-easy">简单</span>
+          </span>
+          <span class="links">
+            <a href="linked-list/0206-反转链表/README.md">题面</a>
+            <span class="sep">|</span>
+            <a href="linked-list/0206-反转链表/solution.cpp">题解</a>
+          </span>
+        </li>
+        <li class="problem-item">
+          <span class="no">25</span>
+          <span class="name">
+            <a href="https://leetcode.cn/problems/reverse-nodes-in-k-group/description/" target="_blank">K 个一组翻转链表</a>
+            <span class="badge badge-hard">困难</span>
+          </span>
+          <span class="links">
+            <a href="linked-list/0025-K个一组翻转链表/README.md">题面</a>
+            <span class="sep">|</span>
+            <a href="linked-list/0025-K个一组翻转链表/solution.cpp">题解</a>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📌 堆</h2>
+      <ul class="problem-list">
+        <li class="problem-item">
+          <span class="no">215</span>
+          <span class="name">
+            <a href="https://leetcode.cn/problems/kth-largest-element-in-an-array/description/" target="_blank">数组中的第K个最大元素</a>
+            <span class="badge badge-medium">中等</span>
+          </span>
+          <span class="links">
+            <a href="heap/0215-数组中的第K个最大元素/README.md">题面</a>
+            <span class="sep">|</span>
+            <a href="heap/0215-数组中的第K个最大元素/solution.cpp">题解</a>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <footer>Generated from lcode 习题集</footer>
+  </div>
+</body>
+</html>
